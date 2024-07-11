@@ -1,8 +1,8 @@
-# Un script pour générer des projets Flask.
+# A script to generate Flask projects.
 
-Un package Python installable pour générer des projets Flask.
+An installable Python package for generating Flask projects.
 
-## La structure de dossiers du package
+## Package folder structure
 
 ```bash
 │   LICENSE
@@ -16,32 +16,32 @@ Un package Python installable pour générer des projets Flask.
         __init__.py
 ```
 
-## Fichiers du package
+## Package files
 
-- **`generator.py`** : Contient la logique de création du projet.
+- **`generator.py`** : Contains project creation logic.
 
-- **`__init__.py`** : Pour marquer le répertoire comme un package Python.
+- **`__init__.py`** : To mark the directory as a Python package.
 
-- **`setup.py`** : Fichier de configuration pour `setuptools`.
+- **`setup.py`** : Configuration file for `setuptools`.
 
-- **`README.md`** : Description du package.
+- **`README.md`** : Package description.
 
-- **`MANIFEST.in`** : Inclut des fichiers supplémentaires dans le package si nécessaire.
+- **`MANIFEST.in`** : Includes additional files in the package if required.
 
 ## Installation
 
-Instructions pour la mise en place :
+Set-up instructions :
 
-- Naviguez jusqu'au dossier racine (flask_project_generator/).
-- Installez le package avec la commande : 
+- Navigate to the root folder (flask_project_generator/).
+- Install the package with the command : 
 
 ```bash
 pip install .
 ```
 
-## Utilisation
+## Use
 
-Pour générer un projet Flask, exécutez la commande suivante :
+To generate a Flask project, run the following command:
 
 ```bash
 generate-flask-project

@@ -43,7 +43,30 @@ def index():
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.content img, .content h2, .content p {
+    padding-bottom: 20px;
 }
 """,
         os.path.join(project_name, 'app/templates/base.html'): """<!DOCTYPE html>

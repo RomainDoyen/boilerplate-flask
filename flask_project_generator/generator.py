@@ -24,12 +24,13 @@ app = Flask(__name__)
 
 from app import routes
 """,
-        os.path.join(project_name, 'app/routes.py'): """from app import app
+        os.path.join(project_name, 'app/routes.py'): """from flask import render_template
+from app import app
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return "Hello, World!"
+    return render_template('index.html')
 """,
         os.path.join(project_name, 'app/static/css/style.css'): """*, *::before, *::after {
     box-sizing: border-box;
@@ -42,6 +43,19 @@ body {
     line-height: 1.6;
 }
 """,
+        os.path.join(project_name, 'app/templates/index.html'): """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>
+"""
     }
 
     # Creating folders

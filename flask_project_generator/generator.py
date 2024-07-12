@@ -1,7 +1,8 @@
 import os
+from colorama import Fore, Style, init
 
 def create_flask_project(project_name):
-    # Dossiers à créer
+    # Folders to create
     directories = [
         project_name,
         os.path.join(project_name, 'app'),
@@ -9,7 +10,7 @@ def create_flask_project(project_name):
         os.path.join(project_name, 'app/templates'),
     ]
 
-    # Fichiers à créer avec leur contenu
+    # Files to create with their contents
     files_content = {
         os.path.join(project_name, 'run.py'): """from app import app
 
@@ -31,19 +32,22 @@ def index():
 """
     }
 
-    # Création des dossiers
+    # Creating folders
     for directory in directories:
         os.makedirs(directory, exist_ok=True)
-        # print(f"Dossier créé: {directory}")
+        # print(f"File created: {directory}")
 
-    # Création des fichiers avec leur contenu
+    # Creating files with their contents
     for filepath, content in files_content.items():
         with open(filepath, 'w') as file:
             file.write(content)
-        # print(f"Fichier créé: {filepath}")
+        # print(f"File created: {filepath}")
 
-    print("Projet Flask généré avec succès.")
+    print(f"\n{Fore.GREEN}Flask project successfully generated.{Style.RESET_ALL}\n")
+    print(f"Install dependencies with: {Fore.BLUE}pip install Flask{Style.RESET_ALL}\n")
+    print(f"Go to the project folder: {Fore.BLUE}cd {project_name}{Style.RESET_ALL}\n")
+    print(f"Run the project with: {Fore.BLUE}python run.py{Style.RESET_ALL}\n")
     
 def main():
-    project_name = input("Entrez le nom du projet Flask: ")
+    project_name = input("Enter the Flask project name: ")
     create_flask_project(project_name)

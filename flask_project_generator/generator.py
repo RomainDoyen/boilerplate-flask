@@ -28,12 +28,14 @@ from app import routes
 """,
         os.path.join(project_name, 'app/routes.py'): """from flask import render_template
 from app import app
+import datetime
 
 @app.route('/')
 @app.route('/index')
 def index():
     user = {'username': 'User'}
-    return render_template('index.html', title='Home', user=user)
+    year = datetime.date.today().year
+    return render_template('index.html', title='Home', user=user, year=year)
 """,
         os.path.join(project_name, 'app/static/css/style.css'): """*, *::before, *::after {
     box-sizing: border-box;
@@ -85,7 +87,7 @@ main {
         {% block content %}{% endblock %}
     </main>
     <footer>
-        <p>&copy; 2024 My Flask Site. All rights reserved.</p>
+        <p>&copy; {{ year }} My Flask Site. All rights reserved.</p>
     </footer>
 </body>
 </html>

@@ -1,4 +1,5 @@
 import os
+import urllib.request
 from colorama import Fore, Style, init
 
 def create_flask_project(project_name):
@@ -8,6 +9,7 @@ def create_flask_project(project_name):
         os.path.join(project_name, 'app'),
         os.path.join(project_name, 'app/static'),
         os.path.join(project_name, 'app/static/css'),
+        os.path.join(project_name, 'app/static/images'),
         os.path.join(project_name, 'app/templates'),
     ]
 
@@ -68,6 +70,7 @@ body {
         os.path.join(project_name, 'app/templates/index.html'): """{% extends "base.html" %}
 
 {% block content %}
+    <img src="{{ url_for('static', filename='images/flask-horizontal.png') }}" alt="Flask Logo" width="200">
     <h2>Hello, {{ user.username }}!</h2>
     <p>Welcome to the home page of your new Flask project.</p>
 {% endblock %}
@@ -81,9 +84,14 @@ body {
 
     # Creating files with their contents
     for filepath, content in files_content.items():
-        with open(filepath, 'w') as file:
+        with open(filepath, 'w', encoding='utf-8') as file:
             file.write(content)
         # print(f"File created: {filepath}")
+    
+    # Download and save the Flask logo
+    logo_url = "https://flask.palletsprojects.com/en/3.0.x/_images/flask-horizontal.png"
+    logo_path = os.path.join(project_name, 'app/static/images/flask-horizontal.png')
+    urllib.request.urlretrieve(logo_url, logo_path)
 
     print(f"\n{Fore.GREEN}Flask project successfully generated.{Style.RESET_ALL}\n")
     print(f"Install dependencies with: {Fore.BLUE}pip install Flask{Style.RESET_ALL}\n")

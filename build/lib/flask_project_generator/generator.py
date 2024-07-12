@@ -31,7 +31,7 @@ from app import app
 @app.route('/index')
 def index():
     user = {'username': 'User'}
-    return render_template('index.html', title='Home', user=user)
+    return render_template('index.html', title='Accueil', user=user)
 """,
         os.path.join(project_name, 'app/static/css/style.css'): """*, *::before, *::after {
     box-sizing: border-box;
@@ -49,7 +49,7 @@ body {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - My Flask Site</title>
+    <title>{{ title }} - Mon Site Flask</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>

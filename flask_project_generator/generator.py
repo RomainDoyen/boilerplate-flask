@@ -7,6 +7,7 @@ def create_flask_project(project_name):
         project_name,
         os.path.join(project_name, 'app'),
         os.path.join(project_name, 'app/static'),
+        os.path.join(project_name, 'app/static/css'),
         os.path.join(project_name, 'app/templates'),
     ]
 
@@ -29,7 +30,18 @@ from app import routes
 @app.route('/index')
 def index():
     return "Hello, World!"
-"""
+""",
+        os.path.join(project_name, 'app/static/css/style.css'): """*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+""",
     }
 
     # Creating folders

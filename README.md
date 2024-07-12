@@ -28,6 +28,12 @@ An installable Python package for generating Flask projects.
 
 - **`MANIFEST.in`** : Includes additional files in the package if required.
 
+# Install dependencies
+
+```bash
+pip install Flask colorama
+```
+
 ## Installation
 
 Set-up instructions :
